@@ -29,7 +29,12 @@ class MyApp extends ConsumerWidget {
               Consumer(
                 builder: (context, watch, _) {
                   final imageUrl = ref.watch(imageNotifierProvider) as ImageModel;
-                  return Image.network(imageUrl.imageUrl);
+                  if (imageUrl.isLoading) {
+                    return const CircularProgressIndicator();
+                  }
+                  else{
+                    return Image.network(imageUrl.imageUrl, width: 500, height: 500);
+                  }
                 },
               ),
               const SizedBox(height: 20),
