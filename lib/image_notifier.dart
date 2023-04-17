@@ -9,7 +9,7 @@ final imageNotifierProvider = StateNotifierProvider((ref) => ImageNotifier());
 
 class ImageNotifier extends StateNotifier<ImageModel> {
 
-  ImageNotifier() : super(ImageModel(imageUrl: '', isLoading: true));
+  ImageNotifier() : super(ImageModel(imageUrl: '', isLoading: false));
 
   Future<void> updateImage() async {
     state = ImageModel(imageUrl: '', isLoading: true);
